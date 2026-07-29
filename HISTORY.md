@@ -1,4 +1,4 @@
-## 1.2.7 (unreleased)
+## 1.2.7 (2026-07-30)
 * Migrated from PECL to PIE
 
 ## 1.2.6 (2026-04-16)
