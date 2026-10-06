@@ -32,7 +32,9 @@ typedef struct _excimer_timer {
 	int is_running;
 
 	/** &EG(vm_interrupt) in the relevant thread */
-#if PHP_VERSION_ID >= 80200
+#if PHP_VERSION_ID >= 80700
+	atomic_bool *vm_interrupt_ptr;
+#elif PHP_VERSION_ID >= 80200
 	zend_atomic_bool *vm_interrupt_ptr;
 #else
 	zend_bool *vm_interrupt_ptr;

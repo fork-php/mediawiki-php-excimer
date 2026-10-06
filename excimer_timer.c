@@ -25,7 +25,9 @@
 #include "excimer_timer.h"
 #include "zend_types.h"
 
-#if PHP_VERSION_ID >= 80200
+#if PHP_VERSION_ID >= 80700
+#define excimer_timer_atomic_bool_store(dest, value) atomic_store(dest, value)
+#elif PHP_VERSION_ID >= 80200
 #define excimer_timer_atomic_bool_store(dest, value) zend_atomic_bool_store(dest, value)
 #else
 #define excimer_timer_atomic_bool_store(dest, value) *dest = value
